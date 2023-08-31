@@ -1,0 +1,189 @@
+.app-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+}
+
+.app {
+  width: 80%;
+  height: 80%;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+.app.true {
+  animation: start-anim;
+  animation-duration: 2s;
+}
+@keyframes start-anim {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  75% {
+    opacity: 0;
+    display: subgrid;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.spline-bg {
+  width: auto;
+  height: 50%;
+}
+.spline-bg.true {
+  display: subgrid;
+  animation: switch;
+  animation-duration: 1s;
+}
+@keyframes switch {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+  25% {
+    opacity: 0;
+    display: subgrid;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.spline-bg.false {
+  display: none;
+  animation: switch;
+  animation-duration: 1s;
+}
+
+.rive-overlay-logo {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  z-index: 10;
+}
+.rive-logo {
+  width: 6rem;
+  height: 6rem;
+}
+.rive-overlay-text {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  z-index: 10;
+}
+.rive-text {
+  width: 22.5rem;
+  height: 30rem;
+}
+.rive-text-mobile-container {
+  position: absolute;
+  top: 58%;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  display: none;
+}
+.rive-text-mobile-container.true {
+  background-color: #d11a1a;
+}
+.rive-text-mobile-container.false {
+  background-color: #2d2786;
+}
+
+.rive-text-mobile {
+  padding-top: 1rem;
+  width: 15rem;
+  height: 20rem;
+}
+.loading-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading {
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  pointer-events: none;
+}
+@media screen and (max-width: 768px) {
+  .app {
+    height: 90%;
+    width: 90%;
+  }
+  .spline-bg {
+    width: auto;
+    height: 100%;
+  }
+  .rive-overlay-text {
+    left: 10%;
+  }
+  .rive-text {
+    width: 18.75rem;
+    height: 25rem;
+  }
+  .rive-overlay-logo {
+    top: 10%;
+    left: 10%;
+  }
+  .rive-logo {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+@media screen and (max-width: 425px) {
+  .app {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: -18%;
+  }
+  .spline-bg {
+    width: auto;
+    height: 100%;
+  }
+
+  .rive-text {
+    width: 15rem;
+    height: 20rem;
+    display: none;
+  }
+  .rive-overlay-logo {
+    top: 20%;
+    left: 4%;
+  }
+  .rive-logo {
+    width: 4rem;
+    height: 4rem;
+  }
+  .rive-text-mobile-container {
+    display: flex;
+  }
+}
+
+.landing {
+  width: 100vw;
+  height: 100vh;
+  background-color: whitesmoke;
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
