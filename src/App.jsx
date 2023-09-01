@@ -1,73 +1,71 @@
-import { useState, useEffect } from "react";
-import { useRef } from "react";
-import Spline from "@splinetool/react-spline";
-import RiveLogo from "./components/RiveLogo";
-import RiveText from "./components/RiveText";
-import "./App.css";
-import RiveLoading from "./components/RiveLoading";
+import { useState, useEffect } from 'react'
+import { useRef } from 'react'
+import Spline from '@splinetool/react-spline'
+import RiveLogo from './components/RiveLogo'
+import RiveText from './components/RiveText'
+import './App.css'
+import RiveLoading from './components/RiveLoading'
 function App() {
-  const [selected, setSelected] = useState(false);
-  const [loadedSceneA, setLoadedSceneA] = useState(false);
-  const [loadedSceneB, setLoadedSceneB] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [pageLoaded, setPageLoaded] = useState(false);
-  const [switchSpline, setSwitchSpline] = useState(false);
-  const spline = useRef();
+  const [selected, setSelected] = useState(false)
+  const [loadedSceneA, setLoadedSceneA] = useState(false)
+  const [loadedSceneB, setLoadedSceneB] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [pageLoaded, setPageLoaded] = useState(false)
+  const [switchSpline, setSwitchSpline] = useState(false)
+  const spline = useRef()
 
-  const scene01 =
-    "https://prod.spline.design/N50PUNQ0hJUJ8vEs/scene.splinecode";
-  const scene02 =
-    "https://prod.spline.design/kI85vxVtRVaxOPgZ/scene.splinecode";
+  const scene01 = 'https://prod.spline.design/N50PUNQ0hJUJ8vEs/scene.splinecode'
+  const scene02 = 'https://prod.spline.design/kI85vxVtRVaxOPgZ/scene.splinecode'
 
   useEffect(() => {
     // Handler to call on window resize
     function handleResize() {
       // Set window width to state
-      setWindowWidth(window.innerWidth);
+      setWindowWidth(window.innerWidth)
     }
 
     // Add event listener
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize)
 
     // Call handler right away so state gets updated with initial window width
-    handleResize();
+    handleResize()
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty array means this useEffect will run once, similar to componentDidMount and componentWillUnmount
+    return () => window.removeEventListener('resize', handleResize)
+  }, []) // Empty array means this useEffect will run once, similar to componentDidMount and componentWillUnmount
 
   function onLoadA() {
-    console.log("A");
-    setLoadedSceneA(true);
+    console.log('A')
+    setLoadedSceneA(true)
   }
 
   function onLoadB() {
-    console.log("B");
-    setLoadedSceneB(true);
+    console.log('B')
+    setLoadedSceneB(true)
   }
   useEffect(() => {
-    updateScene();
-  }, [windowWidth, selected]);
+    updateScene()
+  }, [windowWidth, selected])
 
   const updateScene = () => {
     if (selected) {
       setTimeout(() => {
-        setSwitchSpline(true);
-      }, 1500);
+        setSwitchSpline(true)
+      }, 1500)
     } else {
       setTimeout(() => {
-        setSwitchSpline(false);
-      }, 1500);
+        setSwitchSpline(false)
+      }, 1500)
     }
-  };
+  }
 
   function handleClick(e) {
-    console.log("click " + e.target.name);
+    console.log('click ' + e.target.name)
   }
 
   function handleEnterPage() {
-    setSelected(true);
-    setPageLoaded(true);
+    setSelected(true)
+    setPageLoaded(true)
   }
 
   return (
@@ -97,19 +95,13 @@ function App() {
             onLoad={onLoadA}
             className={`spline-bg ${switchSpline}`}
           />
-          <Spline
-            scene={scene02}
-            onMouseDown={(e) => handleClick(e)}
-            onLoad={onLoadB}
-            className={`spline-bg ${!switchSpline}`}
-          />
         </div>
         <div className={`rive-text-mobile-container ${selected}`}>
           <RiveText selected={selected} className="rive-text-mobile" />
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

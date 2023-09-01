@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   background-color: whitesmoke;
+  overflow: hidden;
 }
 
 .app {
@@ -87,7 +88,7 @@
 }
 .rive-text-mobile-container {
   position: absolute;
-  top: 58%;
+  bottom: 0;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -147,7 +148,7 @@
     height: 4rem;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
   .app {
     position: absolute;
     height: 100%;
