@@ -88,12 +88,20 @@ function App() {
           <div className="rive-overlay-text">
             <RiveText selected={selected} className="rive-text" />
           </div>
-
+          import Spline from '@splinetool/react-spline';
           <Spline
-            scene={scene01}
+            scene={
+              'https://prod.spline.design/nQqkdThXyzUePDLy/scene.splinecode'
+            }
             onMouseDown={(e) => handleClick(e)}
             onLoad={onLoadA}
             className={`spline-bg ${switchSpline}`}
+          />
+          <Spline
+            scene={scene02}
+            onMouseDown={(e) => handleClick(e)}
+            onLoad={onLoadB}
+            className={`spline-bg ${!switchSpline}`}
           />
         </div>
         <div className={`rive-text-mobile-container ${selected}`}>
