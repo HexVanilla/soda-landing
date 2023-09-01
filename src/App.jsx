@@ -102,9 +102,6 @@ function App() {
             className={`spline-bg ${!switchSpline}`}
           />
         </div>
-        <div className={`rive-text-mobile-container ${selected}`}>
-          <RiveText selected={selected} className="rive-text-mobile" />
-        </div>
       </div>
     </>
   )
